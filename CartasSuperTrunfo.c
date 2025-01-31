@@ -7,27 +7,23 @@
 //Teste larissa
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
 
+    //inclusão das variaveis e seus tipos:
     int pontoturisticos, populacao;
     char estado;
-    char codcidade[3];
+    char* codcidade[3];
     char nomecidade[40];
-    float area, pib;
+    float area, pib, pibcapta, densipopula;
     
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-
+    //Requirimento e recebimento de dados do usuario:
     printf("Estado: \n");
     scanf("%c", &estado);
 
     printf("Código da carta: \n");
-    scanf(" %s", &codcidade);
+    scanf("%s", &codcidade);
 
     printf("Nome da cidade: \n");
-    scanf("%s", &nomecidade);
+    scanf(" %s", &nomecidade);
 
     printf("Quantidade pontos turisticos: \n");
     scanf("%d", &pontoturisticos);
@@ -40,18 +36,21 @@ int main() {
 
     printf("Pib da cidade: \n");
     scanf(" %f", &pib);
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
+    //media para pib percapta e densidade populacional:
+    pibcapta = (float) pib / populacao;
+    densipopula = (float) populacao / area;
+
+    // Exibição dos Dados das Cartas:
     printf("Estado: %c\n", estado);
     printf("Codigo da cidade: %s\n", codcidade);
     printf("Cidade: %s\n", nomecidade);
     printf("Pontos Turisticos: %d\n", pontoturisticos);
+    printf("Area: %.2f km²\n", area);
     printf("População: %d\n", populacao);
-    printf("Area: %f\n", area);
-    printf("PIB: %f\n", pib);
+    printf("Densidade População: %.2f pessoas/km²\n", densipopula);
+    printf("PIB: %.2f \n", pib);
+    printf("PIB Percapta: %.2f reais\n", pibcapta);
 
     return 0;
 }
