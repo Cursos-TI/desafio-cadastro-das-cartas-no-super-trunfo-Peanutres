@@ -13,7 +13,8 @@ int main(){
 
     printf("***  Jogo Super Trunfo  ***\n");
 
-    //mensagem de requisição e assim como recebimento dos doados inseridos pelo usuario:
+    //mensagem de requisição e assim como recebimento dos dados inseridos pelo usuario:
+    //primeira carta:
     printf("Insira os dados da primeira carta: \n");
     printf("Insira o codigo do primeiro estado: \n");
     scanf("%s", &codestado1);
@@ -29,7 +30,9 @@ int main(){
     scanf(" %f", &area1);
     printf("Insira o PIB da primeira cidade: \n");
     scanf(" %f", &pib1);
-    printf("insira os dados da segunda carta: \n");
+
+    //segunda carta:
+    printf("Insira os dados da segunda carta: \n");
     printf("Insira o codigo do segundo estado: \n");
     scanf(" %s", &codestado2);
     printf("Insira codigo da segunda cidade: \n");
@@ -45,17 +48,25 @@ int main(){
     printf("Insira o PIB da segunda cidade: \n");
     scanf(" %f", &pib2);
 
-    //calculadoras com uso de casting em alguns casos para a certeza que tenha a conversão para float
+    //calculadoras:
+    //as calculadoras usam casting como metodo de conversão (float), assim garantindo a conversão
+    //calculo de densidade de população:
     densipopula1 = (float) populacao1 / area1;
     densipopula2 = (float) populacao2 / area2;
+    
+    //calculo do pib percapta:
     pibcapta1 = (float) pib1 / populacao1;
     pibcapta2 = (float) pib2 / populacao2;
-    pibresultado1 = pib1 / 1000000000;
-    pibresultado2 = pib2 / 1000000000;
+    
+    //calculo do superpoder da carta:
     poder1 = (float) area1 + pontosturistico1 + populacao1 + pib1 + pibcapta1 + (1/densipopula1);
     poder2 = (float) area2 + pontosturistico2 + populacao2 + pib2 + pibcapta2 + (1/densipopula1);
 
-    //mostra de dados que foram inseridos pelo usuario lado a lado:
+    //diminuição do numero todo do pib para um menor e mais facil de se ler:
+    pibresultado1 = pib1 / 1000000000;
+    pibresultado2 = pib2 / 1000000000;
+
+    //mostra de dados que o usuario inseriu previamente com os dados que precisavam de calculo:
     printf("Cod Estado - Primeira carta: %c - Segunda carta: %c\n", codestado1, codestado2);
     printf("Cod Cidade - Primeira carta: %s - Segunda carta: %s\n", codcidade1, codcidade2);
     printf("Nome da Cidade - Primeira carta: %s - Segunda carta: %s\n", nomecidade1, nomecidade2);
@@ -67,8 +78,7 @@ int main(){
     printf("PIB percapta - Primeira carta: %.2f - Segunda carta: %.2f\n", pibcapta1, pibcapta2);
     printf("Superpoder - Primeira carta: %.2f - Segunda carta: %.2f\n", poder1, poder2);
 
-
-    //comparação dos dados da cidade:
+    //comparador para ver qual carta ganhou em cada ponto, usando operadores relacionais:
     printf("Carta com maior numero de pontos turisticos: %d\n", pontosturistico1 > pontosturistico2);
     printf("Carta com maior area: %d\n", area1 > area2);
     printf("Carta com maior população: %d\n", populacao1 > populacao2);
